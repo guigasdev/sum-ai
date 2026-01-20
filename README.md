@@ -8,22 +8,22 @@ O diagrama abaixo ilustra o fluxo de dados e a integração entre o frontend (St
 
 ```mermaid
 graph TD
-    User["👤 Usuário"] -->|Interage via Navegador| UI["💻 Interface Streamlit (Frontend)"]
+    User["👤 Usuário"] -->|"Interage via Navegador"| UI["💻 Interface Streamlit (Frontend)"]
     
     subgraph "Aplicação Python"
-        UI -->|Envia Texto e Configurações| Utils["⚙️ Módulo Backend (utils.py)"]
-        Utils -->|Lê Credenciais| Env["🔐 Variáveis de Ambiente (.env)"]
+        UI -->|"Envia Texto e Configurações"| Utils["⚙️ Módulo Backend (utils.py)"]
+        Utils -->|"Lê Credenciais"| Env["🔐 Variáveis de Ambiente (.env)"]
     end
     
     subgraph "Azure AI Foundry (Nuvem)"
-        Utils -->|Requisição REST/SDK| Translator["🔤 Azure AI Translator"]
-        Utils -->|Requisição REST/SDK| Language["🧠 Azure AI Language Service"]
+        Utils -->|"Requisição REST/SDK"| Translator["🔤 Azure AI Translator"]
+        Utils -->|"Requisição REST/SDK"| Language["🧠 Azure AI Language Service"]
     end
     
-    Translator -->|Retorna Texto Traduzido| Utils
-    Language -->|Retorna Resumo (Extrativo/Abstrativo)| Utils
-    Utils -->|Processa e Formata| UI
-    UI -->|Exibe Resultado| User
+    Translator -->|"Retorna Texto Traduzido"| Utils
+    Language -->|"Retorna Resumo (Extrativo/Abstrativo)"| Utils
+    Utils -->|"Processa e Formata"| UI
+    UI -->|"Exibe Resultado"| User
 ```
 
 ## ✨ Funcionalidades
